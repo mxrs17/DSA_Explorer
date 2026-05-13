@@ -5,6 +5,10 @@ from modules import linkedlist_visualizer
 from modules import bst_visualizer
 from modules import sorting_visualizer
 from modules import linear_search_visualizer
+from modules import heap_visualizer
+from modules import pathfinding_visualizer
+from modules import graph_visualizer
+from modules import dp_visualizer
 
 pygame.init()
 
@@ -26,6 +30,11 @@ def draw_menu():
         "BST": pygame.Rect(300, 390, 200, 50),
         "Sorting": pygame.Rect(300, 460, 200, 50),
         "Search": pygame.Rect(300, 120, 200, 50),
+
+        "Heap": pygame.Rect(550, 180, 200, 50),
+        "Puzzles": pygame.Rect(550, 250, 200, 50),
+        "Graphs": pygame.Rect(550, 320, 200, 50),
+        "DP": pygame.Rect(550, 390, 200, 50),
     }
 
     for name, rect in buttons.items():
@@ -65,9 +74,21 @@ while running:
 
             elif buttons["Sorting"].collidepoint(pos):
                 sorting_visualizer.run(screen)
-            
+
             elif buttons["Search"].collidepoint(pos):
                 linear_search_visualizer.run(screen)
+
+            elif buttons["Heap"].collidepoint(pos):
+                heap_visualizer.run(screen)
+
+            elif buttons["Puzzles"].collidepoint(pos):
+                pathfinding_visualizer.run(screen)
+
+            elif buttons["Graphs"].collidepoint(pos):
+                graph_visualizer.run(screen)
+
+            elif buttons["DP"].collidepoint(pos):
+                dp_visualizer.run(screen)
 
     clock.tick(30)
 
